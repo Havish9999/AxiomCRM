@@ -1,0 +1,70 @@
+@model AxiomCRM.Models.Activity
+
+<div class="container mt-4">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body">
+
+                    <h2>Add Activity</h2>
+
+                    <p class="text-muted">
+                        Record a CRM activity
+                    </p>
+
+                    <form asp-action="CreateActivity"
+                          method="post">
+
+                        <div asp-validation-summary="All"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <label class="form-label">
+                            Activity Date
+                        </label>
+
+                        <input asp-for="ActivityDate"
+                               type="date"
+                               class="form-control mb-3" />
+
+                        <label class="form-label">
+                            Status
+                        </label>
+
+                        <select asp-for="Status"
+                                class="form-control mb-4">
+
+                            <option>Pending</option>
+                            <option>Completed</option>
+
+                        </select>
+
+                        <button type="submit"
+                                class="btn btn-primary">
+
+                            Save Activity
+
+                        </button>
+
+                        <a asp-action="Activities"
+                           class="btn btn-secondary">
+
+                            Back
+
+                        </a>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

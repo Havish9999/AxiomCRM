@@ -1,0 +1,115 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+
+    <h2>AxiomCRM Dashboard</h2>
+
+    <p class="text-muted">
+        Customer and Sales Management Dashboard
+    </p>
+
+    <div class="row g-3">
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Total Customers</h6>
+                <h2>@ViewBag.Customers</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Total Leads</h6>
+                <h2>@ViewBag.Leads</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Open Leads</h6>
+                <h2>@ViewBag.OpenLeads</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Opportunities</h6>
+                <h2>@ViewBag.Opportunities</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-3 mt-1">
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Open Opportunities</h6>
+                <h2>@ViewBag.OpenOpportunities</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Won</h6>
+                <h2>@ViewBag.Won</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Lost</h6>
+                <h2>@ViewBag.Lost</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h6>Pipeline Value</h6>
+                <h2>₹@ViewBag.Pipeline</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card mt-4 p-4">
+
+        <h5>Opportunity Pipeline</h5>
+
+        <canvas id="pipelineChart"></canvas>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+new Chart(
+    document.getElementById('pipelineChart'),
+    {
+        type: 'bar',
+
+        data:
+        {
+            labels: ['Open', 'Won', 'Lost'],
+
+            datasets:
+            [{
+                label: 'Opportunities',
+
+                data:
+                [
+                    @ViewBag.OpenOpportunities,
+                    @ViewBag.Won,
+                    @ViewBag.Lost
+                ]
+            }]
+        }
+    }
+);
+
+</script>

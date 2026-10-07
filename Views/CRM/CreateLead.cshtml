@@ -1,0 +1,127 @@
+@model AxiomCRM.Models.Lead
+
+<div class="container mt-4">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body">
+
+                    <h2 class="mb-1">Add Lead</h2>
+
+                    <p class="text-muted">
+                        Create a new sales lead
+                    </p>
+
+                    <form asp-action="CreateLead"
+                          method="post">
+
+                        <div asp-validation-summary="All"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <label class="form-label">
+                            Lead Name
+                        </label>
+
+                        <input asp-for="LeadName"
+                               class="form-control mb-3"
+                               placeholder="Enter lead name" />
+
+                        <label class="form-label">
+                            Email
+                        </label>
+
+                        <input asp-for="Email"
+                               class="form-control mb-3"
+                               placeholder="Enter email" />
+
+                        <label class="form-label">
+                            Phone
+                        </label>
+
+                        <input asp-for="Phone"
+                               class="form-control mb-3"
+                               placeholder="Enter phone number" />
+
+                        <label class="form-label">
+                            Company
+                        </label>
+
+                        <input asp-for="CompanyName"
+                               class="form-control mb-3"
+                               placeholder="Enter company name" />
+
+                        <label class="form-label">
+                            Lead Source
+                        </label>
+
+                        <select asp-for="Source"
+                                class="form-control mb-3">
+
+                            <option value="">
+                                Select Source
+                            </option>
+
+                            <option>Website</option>
+                            <option>Referral</option>
+                            <option>Social Media</option>
+                            <option>Advertisement</option>
+                            <option>Cold Call</option>
+                            <option>Other</option>
+
+                        </select>
+
+                        <label class="form-label">
+                            Status
+                        </label>
+
+                        <select asp-for="Status"
+                                class="form-control mb-3">
+
+                            <option>New</option>
+                            <option>Contacted</option>
+                            <option>Qualified</option>
+                            <option>Unqualified</option>
+                            <option>Converted</option>
+                            <option>Lost</option>
+
+                        </select>
+
+                        <label class="form-label">
+                            Expected Value
+                        </label>
+
+                        <input asp-for="ExpectedValue"
+                               type="number"
+                               class="form-control mb-4"
+                               placeholder="Expected deal value" />
+
+                        <button type="submit"
+                                class="btn btn-primary">
+
+                            Save Lead
+
+                        </button>
+
+                        <a asp-action="Leads"
+                           class="btn btn-secondary">
+
+                            Back
+
+                        </a>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

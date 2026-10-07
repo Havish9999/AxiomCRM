@@ -1,0 +1,61 @@
+@model IEnumerable<AxiomCRM.Models.Activity>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center">
+
+        <div>
+            <h2>Activities</h2>
+            <p class="text-muted">
+                Calls, meetings, emails and tasks
+            </p>
+        </div>
+
+        <a class="btn btn-primary"
+           asp-action="CreateActivity">
+            + Add Activity
+        </a>
+
+    </div>
+
+    <div class="card mt-3 shadow-sm">
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>Activity ID</th>
+                        <th>Date</th>
+                        <th>Assigned To</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.ActivityId</td>
+
+                        <td>
+                            @x.ActivityDate.ToString("dd-MM-yyyy")
+                        </td>
+
+                        <td>@x.AssignedTo</td>
+
+                        <td>@x.Status</td>
+                    </tr>
+                }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
